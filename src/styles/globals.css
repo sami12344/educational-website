@@ -100,3 +100,13 @@ a {
     color-scheme: dark;
   }
 }
+
+.container {
+  width: 85%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+.row{
+  width:50%
+}

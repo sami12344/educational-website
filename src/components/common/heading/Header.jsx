@@ -1,13 +1,19 @@
+import { Close, Menu } from '@/svg'
 import Link from 'next/link'
+import { useState } from 'react'
 import PageHeader from './PageHead'
 import h from './header.module.css'
 const Header = () => {
+  const [click, setClick] = useState(false)
   return (
     <>
       <PageHeader />
       <header className={h.header}>
-        <nav className={h.flexSb}>
-          <ul className={h.flexSb}>
+        <nav className={h.navflexSb}>
+          <ul
+            className={click ? 'mobile-nav' : h.flexSb}
+            onClick={() => setClick(false)}
+          >
             <li>
               {' '}
               <Link href={'/'}>Home</Link>
@@ -40,6 +46,10 @@ const Header = () => {
           <div className={h.start}>
             <div className={h.button}>GET CERTIFICATE</div>
           </div>
+
+          <button className={h.toggle} onClick={() => setClick(!click)}>
+            {click ? <Close /> : <Menu />}
+          </button>
         </nav>
       </header>
     </>
